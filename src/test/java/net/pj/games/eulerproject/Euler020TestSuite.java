@@ -14,11 +14,11 @@ import org.slf4j.LoggerFactory;
  * <p>
  * 
  * n! means n × (n  − 1) × ... × 3 × 2 × 1
- * 
+ * <br/>
  * Find the sum of the digits in the number 100!
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler020TestSuite {
 

@@ -5,9 +5,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- *
- */
 public class EulerCalculator {
 
     private static final Logger log = LoggerFactory.getLogger(EulerCalculator.class);
@@ -46,7 +43,7 @@ public class EulerCalculator {
         final List<Integer> divisers = Prime.getDividersOf(x);
         final Integer sum = divisers.stream()
                 .filter(a -> a != x)
-                .reduce(0, (a, b) -> Math.addExact(a, b));
+                .reduce(0, Math::addExact);
         if (sum > x) {
             log.trace("{}->{}", x, sum);
             return true;

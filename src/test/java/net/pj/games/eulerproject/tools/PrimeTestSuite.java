@@ -1,6 +1,3 @@
-/*
- * To change this template, choose Tools | Templates and open the template in the editor.
- */
 package net.pj.games.eulerproject.tools;
 
 import java.math.BigInteger;
@@ -19,7 +16,7 @@ import org.slf4j.LoggerFactory;
  */
 public class PrimeTestSuite {
 
-	private static Logger log = LoggerFactory.getLogger(PrimeTestSuite.class);
+	private static final Logger log = LoggerFactory.getLogger(PrimeTestSuite.class);
 
 
 	@Test
@@ -35,7 +32,7 @@ public class PrimeTestSuite {
 
 	}
 
-        @Test
+    @Test
 	public void compositionTest() {
             final List<BigIntegerPrimeComponent> compo = Prime.getPrimeNumbersCompositionOf(new BigInteger("56"));
             // 2, 3, 3, 3

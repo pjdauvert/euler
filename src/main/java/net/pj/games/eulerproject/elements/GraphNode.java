@@ -10,30 +10,26 @@ import java.util.List;
  * <p>
  * 
  * </p>
- * @author dauvertp
+ * @author dauvertpj
  */
 public class GraphNode {
 	
 	private int innerValue;
 	private int pathValue;
 	private GraphNode optimal;
-	private int name;
-	private List<GraphNode> previous;
-	private List<GraphNode> next;
+	private final int name;
+	private final List<GraphNode> previous;
+	private final List<GraphNode> next;
 	
 	public GraphNode(int name){
 		this.name = name;
-		this.previous = new LinkedList<GraphNode>();
-		this.next = new LinkedList<GraphNode>();
+		this.previous = new LinkedList<>();
+		this.next = new LinkedList<>();
 	}
 	
 	public GraphNode(int name, int innerValue ){
 		this( name );
 		this.innerValue = innerValue;
-	}
-	
-	public void setName(int name) {
-		this.name = name;
 	}
 
 	public int getName() {
@@ -42,9 +38,6 @@ public class GraphNode {
 
 	public int getInnerValue() {
 		return innerValue;
-	}
-	public void setInnerValue(int innerValue) {
-		this.innerValue = innerValue;
 	}
 	public int getPathValue() {
 		return pathValue;
@@ -91,13 +84,11 @@ public class GraphNode {
 		if (getClass() != obj.getClass())
 			return false;
 		GraphNode other = (GraphNode) obj;
-		if (name != other.name)
-			return false;
-		return true;
-	}
+        return name == other.name;
+    }
 	
 	public String toString(){
-		return String.valueOf(this.name)+"("+String.valueOf(this.innerValue)+")";
+		return name +"("+ innerValue +")";
 	}	
 
 }

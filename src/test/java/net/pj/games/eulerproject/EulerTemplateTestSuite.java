@@ -12,14 +12,14 @@ import org.slf4j.LoggerFactory;
  * <p>
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class EulerTemplateTestSuite {
 
 	private static final Logger log = LoggerFactory.getLogger(EulerTemplateTestSuite.class);	
 
-        @Test
-        @Ignore
+    @Test
+    @Ignore
 	public void testWhatever() {
 
 		log.info("----  Test for problem X  ----");
@@ -27,7 +27,7 @@ public class EulerTemplateTestSuite {
         }
         
         
-        @Test
+    @Test
 	public void solution() {
             
             log.info("----  Solution of problem X   ----");

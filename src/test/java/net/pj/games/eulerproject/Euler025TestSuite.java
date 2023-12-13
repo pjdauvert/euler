@@ -1,11 +1,6 @@
-/**
- *
- */
 package net.pj.games.eulerproject;
 
-import net.pj.games.eulerproject.elements.StringPermutator;
 import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,11 +12,10 @@ import java.math.BigInteger;
  * <H2>Problem 25</H2>
  * <p>
  * The Fibonacci sequence is defined by the recurrence relation:
- *
  * Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
- *
+ * <br/>
  * Hence the first 12 terms will be:
- *
+ * <br/>
  * F1 = 1
  * F2 = 1
  * F3 = 2
@@ -34,13 +28,13 @@ import java.math.BigInteger;
  * F10 = 55
  * F11 = 89
  * F12 = 144
- *
+ * <br/>
  * The 12th term, F12, is the first term to contain three digits.
- *
+ * <br/>
  * What is the index of the first term in the Fibonacci sequence to contain 1000 digits?
  * </p>
  *
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler025TestSuite {
 
@@ -54,19 +48,17 @@ public class Euler025TestSuite {
         BigInteger fmin2 = BigInteger.ONE;
         int fiboSize = 1;
         int fibo = 2;
-        while( fiboSize < 1000 ){
+        while (fiboSize < 1000) {
             BigInteger fnext = fmin1.add(fmin2);
             fmin2 = fmin1;
             fmin1 = fnext;
             fibo += 1;
             fiboSize = fnext.toString().length();
-            log.info("F"+fibo+": ["+fiboSize+"]: "+fnext.toString());
+            log.debug("F" + fibo + ": [" + fiboSize + "]: " + fnext);
         }
 
         log.info("result = {}", fibo);
-        //Assert.assertEquals("2783915460", fibo);
-
-
+        Assert.assertEquals(4782, fibo);
     }
 
 }

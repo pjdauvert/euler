@@ -9,41 +9,41 @@ import org.slf4j.LoggerFactory;
  * <p>
  * Classe utilitaire pour le traitement des Matrices
  * </p>
- * @author dauvertp
+ * @author dauvertpj
  */
 public class MatrixUtils {
 	
-	private static Logger log = LoggerFactory.getLogger(MatrixUtils.class);	
+	private static final Logger log = LoggerFactory.getLogger(MatrixUtils.class);
 	
 	public static String printMatrix(BigInteger[][] matrix) {
 
 		final String CR = "\n";
 		final String TAB = " ";
-		final StringBuffer out = new StringBuffer("\n");
-		final int matrixHeight = matrix.length;
-		final int matrixLenght = matrix[0].length;
+		final StringBuilder out = new StringBuilder("\n");
+		//final int matrixHeight = matrix.length;
+		final int matrixLength = matrix[0].length;
 		
 		//calcul de la valeur max
 		BigInteger maxValue = BigInteger.ZERO;
-		for (int i = 0; i < matrixHeight; i++) {
-			for (int j = 0; j < matrixLenght; j++) {
-				if(matrix[i][j].compareTo(maxValue)>0) maxValue = matrix[i][j];
-			}
-		}
+        for (BigInteger[] bigIntegers : matrix) {
+            for (int j = 0; j < matrixLength; j++) {
+                if (bigIntegers[j].compareTo(maxValue) > 0) maxValue = bigIntegers[j];
+            }
+        }
 		//calcul du span
 		int span = maxValue.toString().length();
 		
 		//mise en forme de la Matrice dans le buffer		
-		for (int i = 0; i < matrixHeight; i++) {
-			for (int j = 0; j < matrixLenght; j++) {
-				out.append(StringUtils.leftPad(matrix[i][j].toString(), span));				
-				if(j != matrixLenght-1){
-					out.append(TAB);
-				}else{
-					out.append(CR);
-				}
-			}
-		}
+        for (BigInteger[] bigIntegers : matrix) {
+            for (int j = 0; j < matrixLength; j++) {
+                out.append(StringUtils.leftPad(bigIntegers[j].toString(), span));
+                if (j != matrixLength - 1) {
+                    out.append(TAB);
+                } else {
+                    out.append(CR);
+                }
+            }
+        }
 		return out.toString();
 	}
 	
@@ -57,7 +57,7 @@ public class MatrixUtils {
 		for(int i = 0; i< inputSplit.length && i< lenght*height; i++){
 			line = (i)/lenght;
 			column = i-(line*lenght);
-			matrix[line][column]=Integer.valueOf(inputSplit[i]).intValue();
+			matrix[line][column]= Integer.parseInt(inputSplit[i]);
 		}
 		return matrix;
 	}

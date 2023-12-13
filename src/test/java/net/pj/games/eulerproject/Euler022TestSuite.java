@@ -1,6 +1,3 @@
-/**
- *
- */
 package net.pj.games.eulerproject;
 
 import java.io.IOException;
@@ -13,7 +10,6 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -32,10 +28,10 @@ import org.slf4j.LoggerFactory;
  * For example, when the list is sorted into alphabetical order, COLIN, 
  * which is worth 3 + 15 + 12 + 9 + 14 = 53, is the 938th name in the list. 
  * So, COLIN would obtain a score of 938 × 53 = 49714.
- * 
+ * <br/>
  * What is the total of all the name scores in the file?
  *</p>
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler022TestSuite {
 
@@ -49,13 +45,15 @@ public class Euler022TestSuite {
         log.info("----  Solution of problem 22  ----");
         //file Parsing
         URL resourceUrl = getClass().getResource("/names-022.txt");
+        assert resourceUrl != null;
         Path resourcePath = Paths.get(resourceUrl.toURI());
-        final String allNames = Files.lines(resourcePath).findFirst().get();
-        
+        // read file lines and get first line
+        final String allNames = Files.readAllLines(resourcePath).getFirst();
+
         final List<String> sortedNames = Arrays.stream(allNames.split(","))
                 .map(n -> StringUtils.mid(n, 1, n.length() - 2))
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
         log.info("Size of names list: {}", sortedNames.size());
         
         final int[] values = sortedNames.stream()
@@ -70,19 +68,19 @@ public class Euler022TestSuite {
         final Optional<BigInteger> sum = Arrays.stream(scores)
                 .mapToObj(
                         s-> new BigInteger(String.valueOf(s))
-                ).reduce( (x,y) -> x.add(y));
+                ).reduce(BigInteger::add);
                         
         
         IntStream.range(0, values.length)
                 .forEachOrdered(
                     i->log.info(
-                            String.valueOf(i+1) 
+                            i + 1
                                     + " - " 
                                     + sortedNames.get(i)
                                     +'('
-                                    +String.valueOf(values[i])
+                                    + values[i]
                                     +") : "
-                                    + String.valueOf(scores[i])
+                                    + scores[i]
                     ));
         
         log.info("result = {}", sum.get());

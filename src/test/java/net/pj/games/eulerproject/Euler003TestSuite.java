@@ -12,11 +12,11 @@ import org.slf4j.LoggerFactory;
  * <H2>Problem 3</H2>
  * <p>
  * The prime factors of 13195 are 5, 7, 13 and 29.
- * 
+ * <br/>
  * What is the largest prime factor of the number 600851475143 ?
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler003TestSuite {
 
@@ -28,7 +28,7 @@ public class Euler003TestSuite {
             log.info("----  Solution of problem 3   ----");
             BigInteger pbNumber = new BigInteger("600851475143");
             final List<BigIntegerPrimeComponent> primeNumbersComposition = Prime.getPrimeNumbersCompositionOf(pbNumber);
-            BigInteger result=primeNumbersComposition.get(primeNumbersComposition.size()-1).getPrime();
+            BigInteger result=primeNumbersComposition.getLast().getPrime();
             log.info("result = {}", result);
         }
 

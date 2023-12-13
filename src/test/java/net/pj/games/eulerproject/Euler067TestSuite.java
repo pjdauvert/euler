@@ -1,6 +1,3 @@
-/**
- * 
- */
 package net.pj.games.eulerproject;
 
 import java.io.BufferedReader;
@@ -17,17 +14,17 @@ import org.slf4j.LoggerFactory;
  * <p>
  * By starting at the top of the triangle below and moving to adjacent numbers 
  * on the row below, the maximum total from top to bottom is 23.
- * 
+ * <br>
  *        3
  *       7 4
  *      2 4 6
  *     8 5 9 3
- *
+ * <br>
  * That is, 3 + 7 + 4 + 9 = 23.
- * 
+ * <br>
  * Find the maximum total from top to bottom in 'triangle.txt' (see resources), 
  * a 15K text file containing a triangle with one-hundred rows.
- * 
+ * <br>
  * NOTE: This is a much more difficult version of Problem 18. It is not possible 
  * to try every route to solve this problem, as there are 299 altogether! 
  * If you could check one trillion (1012) routes every second it would take over 
@@ -35,7 +32,7 @@ import org.slf4j.LoggerFactory;
  * There is an efficient algorithm to solve it. ;o)
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler067TestSuite {
 
@@ -43,16 +40,17 @@ public class Euler067TestSuite {
 
 	private String getFile(){
 
-		String chain="";
+		StringBuilder chain= new StringBuilder();
 		
 		try{
 			
-			InputStream ips= ClassLoader.getSystemResourceAsStream("triangle-067.txt"); 
-			InputStreamReader ipsr=new InputStreamReader(ips);
+			InputStream ips= ClassLoader.getSystemResourceAsStream("triangle-067.txt");
+            assert ips != null;
+            InputStreamReader ipsr=new InputStreamReader(ips);
 			BufferedReader br=new BufferedReader(ipsr);
 			String ligne;
 			while ((ligne=br.readLine())!=null){
-				chain+=ligne+" ";
+				chain.append(ligne).append(" ");
 			}
 			br.close(); 
 		}		
@@ -60,7 +58,7 @@ public class Euler067TestSuite {
 			log.error(e.toString());
 		}
 		log.debug("Input chain : {}", chain);
-		return chain;
+		return chain.toString();
 
 	}
 	

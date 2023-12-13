@@ -18,20 +18,18 @@ import org.slf4j.LoggerFactory;
  * 28 would be 1 + 2 + 4 + 7 + 14 = 28, which means that 28 is a perfect number.
  * A number n is called deficient if the sum of its proper divisors is less than
  * n and it is called abundant if this sum exceeds n.
- *
- * As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest
+ * <br> * As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest
  * number that can be written as the sum of two abundant numbers is 24. By
  * mathematical analysis, it can be shown that all integers greater than 28123
  * can be written as the sum of two abundant numbers. However, this upper limit
  * cannot be reduced any further by analysis even though it is known that the
  * greatest number that cannot be expressed as the sum of two abundant numbers
  * is less than this limit.
- *
- * Find the sum of all the positive integers which cannot be written as the sum
+ * <br> * Find the sum of all the positive integers which cannot be written as the sum
  * of two abundant numbers.
  * </p>
  *
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler023TestSuite {
 
@@ -47,7 +45,7 @@ public class Euler023TestSuite {
                         IntStream
                         .iterate(12, x -> x + 1)
                         .limit(28111)
-                        .filter(x -> EulerCalculator.isAbundant(x))
+                        .filter(EulerCalculator::isAbundant)
                         .count()
                 )
         );
@@ -61,7 +59,7 @@ public class Euler023TestSuite {
         final int[] abundants = IntStream
                 .iterate(12, x -> x + 1)
                 .limit(28111)
-                .filter(x -> EulerCalculator.isAbundant(x))
+                .filter(EulerCalculator::isAbundant)
                 .toArray();
 
         final ArrayList<Object> abundantSums = Arrays

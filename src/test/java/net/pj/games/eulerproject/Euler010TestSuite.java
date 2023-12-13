@@ -9,11 +9,11 @@ import org.slf4j.LoggerFactory;
  * <H1>	Summation of primes</H1>
  * <H2>Problem 10</H2> * <p>
  * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
- * 
+ * <br/>
  * Find the sum of all the primes below two million.
  *</p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler010TestSuite {
 

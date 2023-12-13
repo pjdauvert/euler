@@ -1,6 +1,3 @@
-/**
- * 
- */
 package net.pj.games.eulerproject;
 
 import java.util.ArrayList;
@@ -21,11 +18,11 @@ import org.slf4j.LoggerFactory;
  * Classe utilitaire pour le traitement des graphes
  * <br>
  * </p>
- * @author dauvertp
+ * @author dauvertpj
  */
 public class GraphUtils {
 	
-	private static Logger log = LoggerFactory.getLogger(GraphUtils.class);	
+	private static final Logger log = LoggerFactory.getLogger(GraphUtils.class);
 		
 	public static GraphNode getTriangleGraphFromString(String input){
 		
@@ -34,13 +31,13 @@ public class GraphUtils {
 		if( !EulerCalculator.isTriangleNumber(inputSplit.length) )
 			log.error("Input data is not triangle");
 		else{
-			topNode = new GraphNode(0, Integer.valueOf(inputSplit[0]));
+			topNode = new GraphNode(0, Integer.parseInt(inputSplit[0]));
 			GraphNode[] previousRow = new GraphNode[1];
 			previousRow[0]=topNode;
 			for(int row=2, i = 1; i< inputSplit.length ; row++){
 				GraphNode[] actualRow = new GraphNode[row];
 				for(int a=0; a<row; i++, a++){
-					GraphNode node = new GraphNode(i, Integer.valueOf(inputSplit[i]));
+					GraphNode node = new GraphNode(i, Integer.parseInt(inputSplit[i]));
 					actualRow[a] = node;
 					if(a!=0)
 						previousRow[a-1].addNext(node);
@@ -57,10 +54,10 @@ public class GraphUtils {
 		// Set root node
 		root.setPathValue(root.getInnerValue());
 		// initialize first row to evaluate
-		Set<GraphNode> row = new HashSet<GraphNode>(root.getNext());
+		Set<GraphNode> row = new HashSet<>(root.getNext());
 		boolean finished = false;
 		while (!finished) {
-			Set<GraphNode> nextRow = new HashSet<GraphNode>(row.size() + 1);
+			Set<GraphNode> nextRow = new HashSet<>(row.size() + 1);
 			// Iterate on each node of the row
 			for (GraphNode node : row) {
 				// get max Previous path
@@ -95,7 +92,7 @@ public class GraphUtils {
 		if(log.isDebugEnabled()){
 			
 			GraphNode current = result;
-			List<GraphNode> path = new ArrayList<GraphNode>(row.size());
+			List<GraphNode> path = new ArrayList<>(row.size());
 			while(current != null){
 				path.add(current);
 				current = current.getOptimal();
@@ -119,7 +116,7 @@ public class GraphUtils {
 		
 		if(rootNode == null) return "root node is null";
 		final StringBuffer out = new StringBuffer("\n");
-		List<GraphNode> treatedNodes = new LinkedList<GraphNode>();
+		List<GraphNode> treatedNodes = new LinkedList<>();
 		treatedNodes.add(rootNode);
 		goThroughNodes(treatedNodes, rootNode, topdown);
 		for(GraphNode node : treatedNodes){
@@ -142,7 +139,7 @@ public class GraphUtils {
 			indicator = "<<";
 		}
 		if(nodeList.hasNext()){
-			buffer.append("["+node+"]"+indicator+"{");
+			buffer.append("[").append(node).append("]").append(indicator).append("{");
 			buffer.append(nodeList.next());
 			while(nodeList.hasNext()){
 				buffer.append(",");

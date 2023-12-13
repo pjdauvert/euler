@@ -14,7 +14,7 @@ import org.slf4j.LoggerFactory;
  * <p>
  * Find the greatest product of five consecutive digits 
  * in the 1000-digit number.
- * 
+ * <br/>
  * 73167176531330624919225119674426574742355349194934
  * 96983520312774506326239578318016984801869478851843
  * 85861560789112949495459501737958331952853208805511
@@ -35,10 +35,9 @@ import org.slf4j.LoggerFactory;
  * 84580156166097919133875499200524063689912560717606
  * 05886116467109405077541002256983155200055935729725
  * 71636269561882670428252483600823257530420752963450
- * 
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler008TestSuite {
 
@@ -60,7 +59,7 @@ public class Euler008TestSuite {
             	if(!StringUtils.contains(suite, '0')){
             		int candidate = 1;
             		for (int j = 0; j < suite.length(); j++) {
-            			candidate *= Integer.valueOf(suite.substring(j, j+1));
+            			candidate *= Integer.parseInt(suite.substring(j, j+1));
 					}
             		if(candidate >= result) {
             			log.info("found greater candidate : {} = {}", suite, candidate);

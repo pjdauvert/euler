@@ -1,6 +1,3 @@
-/**
- * 
- */
 package net.pj.games.eulerproject;
 
 import java.math.BigInteger;
@@ -14,11 +11,11 @@ import org.slf4j.LoggerFactory;
  * <p>
  * Starting in the top left corner of a 2×2 grid, 
  * there are 6 routes (without backtracking) to the bottom right corner.
- * 
+ * <br/>
  * How many routes are there through a 20×20 grid?
  * </p>
  * 
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler015TestSuite {
 

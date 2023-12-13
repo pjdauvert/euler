@@ -1,6 +1,3 @@
-/**
- * 
- */
 package net.pj.games.eulerproject;
 
 import net.pj.games.eulerproject.elements.GraphNode;
@@ -19,11 +16,11 @@ import org.slf4j.LoggerFactory;
  *   7 4
  *  2 4 6
  * 8 5 9 3
- * 
+ * <br/>
  * That is, 3 + 7 + 4 + 9 = 23.
- * 
+ * <br/>
  * Find the maximum total from top to bottom of the triangle below:
- * 
+ * <br/>
  *               75
  *              95 64
  *             17 47 82
@@ -39,13 +36,12 @@ import org.slf4j.LoggerFactory;
  *   91 71 52 38 17 14 91 43 58 50 27 29 48
  *  63 66 04 68 89 53 67 30 73 16 69 87 40 31
  * 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
- * 
+ * <br/>
  * NOTE: As there are only 16384 routes, it is possible to solve this problem by trying every route. 
  * However, Problem 67, is the same challenge with a triangle containing one-hundred rows; 
  * it cannot be solved by brute force, and requires a clever method! ;o)
- * 
  * </p>
- * @author dauvertp
+ * @author dauvertpj
  */
 public class Euler018TestSuite {
 

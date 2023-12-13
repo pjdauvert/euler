@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package net.pj.games.eulerproject.elements;
 
 import org.apache.commons.lang.StringUtils;
@@ -85,7 +80,7 @@ public class StringPermutator {
         for (int i = 0; i < orderedSuffix.length; i++) {
             nextValue[i + 1] = (char) orderedSuffix[i];
         }
-        //log.debug("incremented value of {} is {}", s, nextValue);
+        log.debug("incremented value of {} is {}", s, nextValue);
         return new String(nextValue);
     }
 
