@@ -6,6 +6,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * <H1>Distinct Powers</H1>
  * <H2>Problem 29</H2>
@@ -33,19 +37,31 @@ public class Euler029TestSuite {
 
     private static final Logger log = LoggerFactory.getLogger(Euler029TestSuite.class);
 
+    private int findDistinctPowersSize(int i) {
+        Set<BigInteger> result = new HashSet<>();
+        for (int a = 2; a <= i; a++) {
+            for (int b = 2; b <= i; b++) {
+                result.add(BigInteger.valueOf(a).pow(b));
+            }
+        }
+        //log.debug("result = {}", result);
+        return result.size();
+    }
+
     @Test
     @Ignore
-    public void testWhatever() {
+    public void testStatement() {
         log.info("----  Test for problem 29 ----");
+        int result = findDistinctPowersSize(5);
+        Assert.assertEquals(15, result);
     }
 
     @Test
     public void solution() {
         log.info("----  Solution of problem 29   ----");
-        int result = 0;
-
+        int result = findDistinctPowersSize(100);
         log.info("result = {}", result);
-        Assert.assertEquals(0, result);
+        Assert.assertEquals(9183, result);
     }
 
 }
