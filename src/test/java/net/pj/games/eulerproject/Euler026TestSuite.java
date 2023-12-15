@@ -37,27 +37,28 @@ public class Euler026TestSuite {
     @Test
 	public void solution() {
             
-            log.info("----  Solution of problem 26   ----");
-            int result=0;
+        log.info("----  Solution of problem 26   ----");
+        // Create a fraction with numerator = 1 for each denominator from 2 to 1000 as prime numbers
+        // are not recurring
+        int candidate = 7;
+        int MAX_DENOMINATOR = 1000;
+        int maxRecurrenceLength = 6;
+        int result = candidate;
 
-            // Create a fraction with numerator = 1 for each denominator from 2 to 1000 as prime numbers
-            // are not recurring
-            int maxRecurrenceLength = 6;
-            int candidate = 7;
-            int MAX_DENOMINATOR = 1000;
-            Fraction f = new Fraction(1, candidate);
-            while (candidate > 0 && candidate < MAX_DENOMINATOR) {
-                candidate = Prime.getNextPrimeAfter(candidate, MAX_DENOMINATOR);
-                f = new Fraction(1, candidate);
-                int recurrenceLength = f.getRecurrenceLength();
-                if(recurrenceLength > maxRecurrenceLength) {
-                    maxRecurrenceLength = recurrenceLength;
-                    result = candidate;
-                }
+        Fraction f = new Fraction(1, candidate);
+        while (candidate > 0 && candidate < MAX_DENOMINATOR) {
+            candidate = Prime.getNextPrimeAfter(candidate, MAX_DENOMINATOR);
+            f = new Fraction(1, candidate);
+            int recurrenceLength = f.getRecurrenceLength();
+            //log.debug("\n\ndenominator = {}\nfraction value: {}\nrecurrence length = {}\n\ncurrent best: {}/{}\n", candidate, f.getStringValueWithRecurrence(), f.getRecurrenceLength(), result, maxRecurrenceLength);
+            if(recurrenceLength > maxRecurrenceLength) {
+                maxRecurrenceLength = recurrenceLength;
+                result = candidate;
             }
-
-            log.info("denominator = {}\nvalue: {}\nrecurrence length = {}", result, f.getStringValueWithRecurrence(), f.getRecurrenceLength());
-            Assert.assertEquals(983, result);
         }
+
+        log.info("denominator = {}\nvalue: {}\nrecurrence length = {}", result, f.getStringValueWithRecurrence(), f.getRecurrenceLength());
+        Assert.assertEquals(983, result);
+    }
 
 }

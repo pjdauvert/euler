@@ -21,20 +21,16 @@ public class EulerTemplateTestSuite {
     @Test
     @Ignore
 	public void testWhatever() {
-
 		log.info("----  Test for problem X  ----");
-                
-        }
-        
-        
+    }
+
     @Test
 	public void solution() {
-            
-            log.info("----  Solution of problem X   ----");
-            int result=0;
-            
-            log.info("result = {}", result);
-            Assert.assertEquals(0, result);
-        }
+        log.info("----  Solution of problem X   ----");
+        int result=0;
+
+        log.info("result = {}", result);
+        Assert.assertEquals(0, result);
+    }
 
 }
