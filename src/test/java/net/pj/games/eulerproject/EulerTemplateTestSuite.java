@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * <H1>Title</H1>
- * <H2>Problem X</H2>
+ * <H2><a href="https://projecteuler.net/problem=X">Problem X</a></H2>
  * <p>
  * </p>
  * 
@@ -20,7 +20,7 @@ public class EulerTemplateTestSuite {
 
     @Test
     @Ignore
-	public void testWhatever() {
+	public void testStatement() {
 		log.info("----  Test for problem X  ----");
     }
 
